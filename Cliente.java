@@ -1,3 +1,6 @@
+import java.util.Scanner;
+import java.util.ArrayList; 
+
 public class Cliente {
 	public static void main(String[] args) {
 		PalioPrototype prototipoPalio = new PalioPrototype();
@@ -5,40 +8,60 @@ public class Cliente {
 		FiestaPrototype prototipoFiesta = new FiestaPrototype();
 		HB20prototype prototipoHB20 = new HB20prototype();
 		OnixPrototype prototipoOnix = new OnixPrototype();
-		
-		CarroPrototype palioNovo = prototipoPalio.clonar();
-		palioNovo.setValorCompra(27900.0);
-		CarroPrototype palioUsado = prototipoPalio.clonar();
-		palioUsado.setValorCompra(21000.0);
-		
-		CarroPrototype HB20Novo = prototipoHB20.clonar();
-		HB20Novo.setValorCompra(40000.0);
-		
-		CarroPrototype OnixNovo = prototipoOnix.clonar();
-		OnixNovo.setValorCompra(42000.0);
+	
+		String carro = "";
+		int preco = 0;
 		
 		
-		CarroPrototype GolTunado = prototipoGol.clonar();
-		GolTunado.setValorCompra(43500.0);
-		CarroPrototype GolAcabado = prototipoGol.clonar();
-		GolAcabado.setValorCompra(13000.0);
+		ArrayList<CarroPrototype> ListaDeCarros = new ArrayList();
 		
-		int i=0;
-		while(i<10) {
-			System.out.println("Encomenda de 10 carros\n");
-			CarroPrototype Fiesta = prototipoFiesta.clonar();
-			Fiesta.setValorCompra(20000.0);
-			System.out.println(Fiesta.exibirInfo());
-			i++;
+		while(!carro.equals("s")) {
+		
+		Scanner entrada = new Scanner(System.in);
+		System.out.println("Digite o modelo ou s para sair: ");
+		carro = entrada.nextLine();
+		if(!carro.equals("s")) {
+			Scanner entrada1 = new Scanner(System.in);
+			System.out.println("Digite o preço de compra: ");
+			preco = entrada1.nextInt();
+		}		
+		
+			switch(carro) {
+				
+				case "Gol":
+					CarroPrototype gol = prototipoGol.clonar();
+					gol.setValorCompra(preco);
+					ListaDeCarros.add(gol);
+					break;
+				case "Palio":
+					CarroPrototype palio = prototipoPalio.clonar();
+					palio.setValorCompra(preco);
+					ListaDeCarros.add(palio);
+					break;
+				case "Fiesta":
+					CarroPrototype fiesta = prototipoFiesta.clonar();
+					fiesta.setValorCompra(preco);
+					ListaDeCarros.add(fiesta);
+					break;
+				case "HB20":
+					CarroPrototype HB20 = prototipoHB20.clonar();
+					HB20.setValorCompra(preco);
+					ListaDeCarros.add(HB20);
+					break;
+				case "Onix":
+					CarroPrototype Onix = prototipoOnix.clonar();
+					Onix.setValorCompra(preco);
+					ListaDeCarros.add(Onix);
+					break;
+			}
 		}
 		
-		System.out.println(palioNovo.exibirInfo());
-		System.out.println(palioUsado.exibirInfo());
-		System.out.println(GolTunado.exibirInfo());
-		System.out.println(GolAcabado.exibirInfo());
-		System.out.println(HB20Novo.exibirInfo());
-		System.out.println(OnixNovo.exibirInfo());
+		int n = ListaDeCarros.size();
+		for(int i=0;i<n;i++) {
+			System.out.println(ListaDeCarros.get(i).exibirInfo());
+		}
 		
-	
+	System.out.println("O programa encerrou!");
 	}
+
 }
