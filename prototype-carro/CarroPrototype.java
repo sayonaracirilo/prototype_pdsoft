@@ -1,9 +1,12 @@
-public abstract class CarroPrototype {
+public abstract class CarroPrototype implements Cloneable{
 	protected double valorCompra;
 
 	public abstract String exibirInfo();
 
-	public abstract CarroPrototype clonar();
+	public CarroPrototype clone() throws CloneNotSupportedException
+	{
+		return (CarroPrototype)super.clone();
+	}
 
 	public double getValorCompra() {
 		return valorCompra;
