@@ -1,6 +1,6 @@
 public class PalioPrototype extends CarroPrototype {
 
-	private PalioPrototype(PalioPrototype palioPrototype) {
+	protected PalioPrototype(PalioPrototype palioPrototype) {
 		this.valorCompra = palioPrototype.getValorCompra();
 	}
 
@@ -15,8 +15,8 @@ public class PalioPrototype extends CarroPrototype {
 	}
 
 	@Override
-	public CarroPrototype clonar() {
-		return new PalioPrototype(this);
+	public CarroPrototype clone()  throws CloneNotSupportedException{
+		return (PalioPrototype)super.clone();
 	}
 
 }
