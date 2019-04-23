@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList; 
 
 public class Cliente {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
 		PalioPrototype prototipoPalio = new PalioPrototype();
 		GolPrototype prototipoGol = new GolPrototype();
 		FiestaPrototype prototipoFiesta = new FiestaPrototype();
@@ -29,27 +29,27 @@ public class Cliente {
 			switch(carro) {
 				
 				case "Gol":
-					CarroPrototype gol = prototipoGol.clonar();
+					CarroPrototype gol = prototipoGol.clone();
 					gol.setValorCompra(preco);
 					ListaDeCarros.add(gol);
 					break;
 				case "Palio":
-					CarroPrototype palio = prototipoPalio.clonar();
+					CarroPrototype palio = prototipoPalio.clone();
 					palio.setValorCompra(preco);
 					ListaDeCarros.add(palio);
 					break;
 				case "Fiesta":
-					CarroPrototype fiesta = prototipoFiesta.clonar();
+					CarroPrototype fiesta = prototipoFiesta.clone();
 					fiesta.setValorCompra(preco);
 					ListaDeCarros.add(fiesta);
 					break;
 				case "HB20":
-					CarroPrototype HB20 = prototipoHB20.clonar();
+					CarroPrototype HB20 = prototipoHB20.clone();
 					HB20.setValorCompra(preco);
 					ListaDeCarros.add(HB20);
 					break;
 				case "Onix":
-					CarroPrototype Onix = prototipoOnix.clonar();
+					CarroPrototype Onix = prototipoOnix.clone();
 					Onix.setValorCompra(preco);
 					ListaDeCarros.add(Onix);
 					break;
