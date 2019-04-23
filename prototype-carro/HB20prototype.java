@@ -15,8 +15,8 @@ public class HB20prototype extends CarroPrototype {
 	}
 
 	@Override
-	public CarroPrototype clonar() {
-		return new HB20prototype(this);
+	public CarroPrototype clone() throws CloneNotSupportedException{
+		return (HB20prototype)super.clone();
 	}
 
 }
