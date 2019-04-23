@@ -15,8 +15,8 @@ public class FiestaPrototype extends CarroPrototype {
 	}
 
 	@Override
-	public CarroPrototype clonar() {
-		return new FiestaPrototype(this);
+	public CarroPrototype clone() throws CloneNotSupportedException{
+		return (FiestaPrototype)super.clone();
 	}
 
 }
