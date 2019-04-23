@@ -15,8 +15,8 @@ public class GolPrototype extends CarroPrototype {
 	}
 
 	@Override
-	public CarroPrototype clonar() {
-		return new GolPrototype(this);
+	public CarroPrototype clone() throws CloneNotSupportedException {
+		return (GolPrototype)super.clone();
 	}
 
 }
