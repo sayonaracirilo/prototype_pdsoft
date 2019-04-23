@@ -1,6 +1,6 @@
 public class OnixPrototype extends CarroPrototype {
 
-	private OnixPrototype(OnixPrototype OnixPrototype) {
+	protected OnixPrototype(OnixPrototype OnixPrototype) {
 		this.valorCompra =OnixPrototype.getValorCompra();
 	}
 
@@ -15,8 +15,8 @@ public class OnixPrototype extends CarroPrototype {
 	}
 
 	@Override
-	public CarroPrototype clonar() {
-		return new OnixPrototype(this);
+	public CarroPrototype clone() throws CloneNotSupportedException {
+		return (OnixPrototype)super.clone();
 	}
 
 }
